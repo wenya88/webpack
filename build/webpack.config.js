@@ -19,11 +19,13 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          'sass-loader'
-        ],
+        use: ExtractTextPlugin.extract({
+          use:[
+            'css-loader',
+            'sass-loader'
+          ],
+          fallback: 'style-loader'
+        }),
       },
       {
         test: /\.sass$/,
@@ -38,11 +40,10 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            'scss': [
-              'vue-style-loader',
-              'css-loader',
-              'sass-loader'
-            ],
+            'scss': ExtractTextPlugin.extract({
+              use: ['css-loader?minimize', 'sass-loader'],
+              fallback: 'vue-style-loader'
+            }),
             'sass': [
               'vue-style-loader',
               'css-loader',
@@ -65,12 +66,16 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file-loader'
+        loader: 'file-loader?name=[name]-[hash].[ext]',
+        options: {
+          useRelativePath: true ,
+          publicPath:'../font/'
+        }
       },
     ]
   },
   plugins: [
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin("main.css"),
   ],
   resolve: {
     extensions: ['*', '.js', '.vue', '.json'],
@@ -83,7 +88,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: false
+    overlay: false,
   }
 }
 
