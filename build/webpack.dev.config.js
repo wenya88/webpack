@@ -1,5 +1,5 @@
 const path = require('path')
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: '@/main.js',
@@ -12,10 +12,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-            use: 'css-loader',
-            fallback: 'style-loader'
-        })
+        use: [
+          'vue-style-loader',
+          'css-loader'
+        ],
       },
       {
         test: /\.scss$/,
@@ -69,9 +69,6 @@ module.exports = {
       },
     ]
   },
-  plugins: [
-    new ExtractTextPlugin("styles.css"),
-  ],
   resolve: {
     extensions: ['*', '.js', '.vue', '.json'],
     alias: {
@@ -83,7 +80,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: false
+    overlay: true
   }
 }
 

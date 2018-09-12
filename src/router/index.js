@@ -1,14 +1,14 @@
 
 const Routes=[
     {
-        path:'/home',
-        name:'home',
-        title:'主页',
-        component:(resolve)=>require(['../view/home.vue'],resolve)
+        path:'/taskList',
+        name:'taskList',
+        title:'任务列表',
+        component:(resolve)=>require(['../view/taskList.vue'],resolve)
     },
     {
-        path:'*',
-        redirect:'home'
+        path: '/',  
+        redirect: '/taskList'  
     },
     // {
     //     paht:'/',

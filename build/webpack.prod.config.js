@@ -9,11 +9,12 @@ webpackBaseConfig.plugins = [];
 module.exports=merge(webpackBaseConfig,{
     output: {
         publicPath: './',
-        filename: '[name].[hash].js'
+        filename: 'js/[name].[hash:8].js'
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: '[name].[hash].css',
+            publicPath:'css/',
+            filename: 'css/[name].[hash:8].css',
             allChunks: true
         }),
         new webpack.DefinePlugin({
