@@ -5,9 +5,11 @@ import Routes from './index'
 Vue.use(VueRouter);
 
 const RouterConfig={
-    mode:'history',
+    mode:'hash',
     routes:Routes
 }
 const router = new VueRouter(RouterConfig);
 
 export default router;
+
+

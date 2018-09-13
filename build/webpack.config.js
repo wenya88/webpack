@@ -5,8 +5,8 @@ module.exports = {
   entry: '@/main.js',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    publicPath: '/dist/',
-    filename: 'build.js'
+    // publicPath: '/dist/',
+    // filename: 'build.js'
   },
   module: {
     rules: [
@@ -88,7 +88,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: false,
+    overlay: false
   }
 }
 
