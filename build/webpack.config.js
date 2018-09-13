@@ -14,7 +14,8 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
             use: 'css-loader',
-            fallback: 'style-loader'
+            fallback: 'style-loader',
+            publicPath:'../'
         })
       },
       {
@@ -23,8 +24,9 @@ module.exports = {
           use:[
             'css-loader',
             'sass-loader'
-          ],
-          fallback: 'style-loader'
+          ],     
+          fallback: 'style-loader',
+          publicPath:'../'
         }),
       },
       {
@@ -66,11 +68,11 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file-loader?name=[name]-[hash].[ext]',
-        options: {
-          useRelativePath: true ,
-          publicPath:'../font/'
-        }
+        loader: 'file-loader?name=css/[name]-[hash].[ext]',
+        // options: {
+        //   useRelativePath: true ,
+        //   publicPath:'../font/'
+        // }
       },
     ]
   },
