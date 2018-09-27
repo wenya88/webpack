@@ -9,6 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import { querystring,global } from './config/global';
 
 axios.defaults.baseURL='http://192.168.1.21';  //axios默认请求地址
+
 Vue.prototype.$axios=axios; //axios方法
 Vue.prototype.$qs=querystring; //全局qs方法
 Vue.prototype.Global=global; //全局请求头

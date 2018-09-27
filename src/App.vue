@@ -1,8 +1,8 @@
 <template> 
   <div>
-      <router-view></router-view>
+    中电健康云vue_v1.0
+    <router-view></router-view>
   </div>
-     
 </template>
 
 <script>
