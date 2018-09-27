@@ -9,6 +9,13 @@ const page404=[
 ]
 const outherRouter=[
     {
+        path:'/403',
+        name:'403',
+        title:'错误403',
+        component:(resolve)=>require(['../view/404.vue'],resolve)
+
+    },
+    {
         path:'/home',
         name:'home',
         title:'主页',
@@ -23,7 +30,15 @@ const outherRouter=[
                 path:'/trace',
                 name:'trace',
                 title:'我的主页',
-                component:(resolve)=>require(['../view/trace.vue'],resolve)
+                component:(resolve)=>require(['../view/trace.vue'],resolve),
+                children:[
+                    {
+                        path:'/member',
+                        name:'member',
+                        title:'成员管理',
+                        component:(resolve)=>require(['../view/member.vue'],resolve)
+                    }
+                ]
             }
         ]
     },
@@ -35,5 +50,6 @@ const outherRouter=[
 const Routes=outherRouter.concat(page404)
 export {
     Routes,
+    outherRouter,
     page404
 };

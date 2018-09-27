@@ -9,19 +9,27 @@
                 <router-link :to="{path:'/trace'}">我的主页</router-link>
             </span>
         </div>
+        {{routerData}}
         <router-view></router-view>
     </div>
 </template>
 <script>
-import {page404} from '@/router/index.js'
+import {outherRouter} from '@/router/index.js'
 export default {
     data(){
         return{
-           
+           routerData:[]
         }
     },
     mounted(){
-        console.log(page404)
+        
+        let routeData=[];
+        outherRouter.forEach(val => {
+           if(val.name!=undefined){
+               routeData.push(val)
+           }
+        });
+        this.routerData=routeData;
     }
 }
 </script>
