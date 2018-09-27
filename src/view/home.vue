@@ -13,12 +13,16 @@
     </div>
 </template>
 <script>
+import {page404} from '@/router/index.js'
 export default {
     data(){
         return{
            
         }
     },
+    mounted(){
+        console.log(page404)
+    }
 }
 </script>
 <style lang="scss" scoped>

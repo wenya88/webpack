@@ -33,4 +33,7 @@ const outherRouter=[
     }
 ]
 const Routes=outherRouter.concat(page404)
-export default Routes;
+export {
+    Routes,
+    page404
+};
