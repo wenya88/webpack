@@ -21,8 +21,13 @@ export default {
            routerData:[]
         }
     },
+    watch:{
+        '$route'(to,from){
+            console.log(to)
+        }
+    },
     mounted(){
-        
+
         let routeData=[];
         outherRouter.forEach(val => {
            if(val.name!=undefined){
