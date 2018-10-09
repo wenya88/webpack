@@ -1,5 +1,6 @@
 <template>
     <div>
+        {{count}}
         <div style="color:#F56C6C;display:block;"><i class="el-icon-warning"></i> <router-link :to="{path:'/404'}">404错误页面</router-link></div>
         <div class="navMenu">
             <span>
@@ -18,7 +19,8 @@ import {outherRouter} from '@/router/index.js'
 export default {
     data(){
         return{
-           routerData:[]
+           routerData:[],
+           count:0
         }
     },
     watch:{
@@ -27,7 +29,6 @@ export default {
         }
     },
     mounted(){
-
         let routeData=[];
         outherRouter.forEach(val => {
            if(val.name!=undefined){
@@ -35,6 +36,26 @@ export default {
            }
         });
         this.routerData=routeData;
+        this.setInter();
+    },
+    methods:{
+        setInter(){
+            let add=setInterval(()=>{
+                if(this.count<10){
+                    this.count++
+                }else{
+                    clearInterval(add);
+                    let minus=setInterval(()=>{
+                        if(this.count>0){
+                            this.count--
+                        }else{
+                            clearInterval(minus)
+                            this.setInter();
+                        }
+                    },500)
+                }
+            },500)
+        }
     }
 }
 </script>
