@@ -37,6 +37,10 @@ const outherRouter=[
                         name:'member',
                         meta:'成员管理',
                         component:(resolve)=>require(['../view/member.vue'],resolve)
+                    },
+                    {
+                        path:'/trace',
+                        redirect:'/member'
                     }
                 ]
             }
